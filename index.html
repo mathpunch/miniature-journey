@@ -10,10 +10,8 @@
             const links = document.querySelectorAll('a');
             links.forEach(link => {
                 const url = new URL(link.href);
-                // Ensure all links redirect through the proxy
-                if (url.hostname === 'mathpunch.github.io') {
-                    link.href = `https://your-netlify-site.netlify.app${url.pathname}${url.search}`;
-                }
+                // Update links to redirect through your proxy
+                link.href = `https://your-netlify-site.netlify.app/${url.pathname}${url.search}`;
             });
         }
 
@@ -23,6 +21,17 @@
 </head>
 <body>
     <h1>Welcome to the Automatic Rotary Phone Proxy</h1>
-    <iframe src="https://mathpunch.github.io/automatic-rotary-phone/" width="100%" height="600"></iframe>
+    <iframe id="contentFrame" src="https://mathpunch.github.io/automatic-rotary-phone/" width="100%" height="600"></iframe>
+
+    <script>
+        // Listen for clicks in the iframe
+        document.getElementById('contentFrame').contentWindow.addEventListener('click', function(event) {
+            const target = event.target.closest('a'); // Find the closest <a> element
+            if (target) {
+                event.preventDefault(); // Prevent default link behavior
+                window.open(`https://your-netlify-site.netlify.app${target.pathname}`, '_self'); // Open the link through the proxy
+            }
+        });
+    </script>
 </body>
 </html>
