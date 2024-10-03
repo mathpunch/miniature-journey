@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Proxy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Rotary Phone Proxy</title>
+    <script>
+        // Function to modify links to redirect through the proxy
+        function updateLinks() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                const url = new URL(link.href);
+                // Ensure all links redirect through the proxy
+                if (url.hostname === 'mathpunch.github.io') {
+                    link.href = `https://your-netlify-site.netlify.app${url.pathname}${url.search}`;
+                }
+            });
+        }
+
+        // Call the function when the page loads
+        window.onload = updateLinks;
+    </script>
 </head>
 <body>
-  <h1>Welcome to the TikTok Proxy</h1>
-  <iframe src="https://www.tiktok.com" width="100%" height="600"></iframe>
+    <h1>Welcome to the Automatic Rotary Phone Proxy</h1>
+    <iframe src="https://mathpunch.github.io/automatic-rotary-phone/" width="100%" height="600"></iframe>
 </body>
 </html>
