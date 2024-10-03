@@ -1,5 +1,6 @@
 [[redirects]]
   from = "/*"
-  to = "https://mathpunch.github.io/automatic-rotary-phone/:splat"
+  to = "https://www.tiktok.com/:splat"
   status = 200
   force = true
+  headers = { "Access-Control-Allow-Origin" = "*" }
